@@ -16,7 +16,7 @@ const Header = () => {
     const { userData, setUserData } = useUserContext();
     const [userLoggedout, setUserLoggedout] = useState(false);
     const [userProfileClicked, setUserProfileClicked] = useState(false);
-    
+
 
     const [selectedOption, setSelectedOption] = useState('Global');
     const toggleOption = () => {
@@ -93,7 +93,7 @@ const Header = () => {
     };
 
     console.log(userData)
-    
+
 
     return (
         <div className='main-header'>
@@ -116,8 +116,8 @@ const Header = () => {
 
                                 <div className={`user-profile-icon ${!userProfileClicked ? 'hide-profile-menu' : 'show-profile-menu'}`}>
                                     <div className="user-profile-icon-header">
-                                        <h4>Welcome Kazi !</h4>
-                                        <p>kazisolah@gmail.com</p>
+                                        <h4>Welcome, Sayem!</h4>
+                                        <p>talk2sayem@gmail.com</p>
                                     </div>
                                     <div className="loggedin-user-options">
                                         <Link to="/userprofile/aboutme" onClick={toggleUserProfile}><FaUserTie></FaUserTie> Profile</Link>
@@ -173,8 +173,8 @@ const Header = () => {
                                         {userProfileClicked ?
                                             <div className="user-profile-icon">
                                                 <div className="user-profile-icon-header">
-                                                    <h4>Welcome Kazi !</h4>
-                                                    <p>kazisolah@gmail.com</p>
+                                                    <h4>Welcome, Sayem!</h4>
+                                                    <p>talk2sayem@gmail.com</p>
                                                 </div>
                                                 <div className="loggedin-user-options">
                                                     <Link to="/userprofile/aboutme" onClick={toggleUserProfile}><FaUserTie></FaUserTie> Profile</Link>
@@ -194,7 +194,7 @@ const Header = () => {
                                 userLoggedout?.result ?
                                     <>
                                         <li><Link to="/register" className='register-btn' onClick={() => setMobileMenuClicked(false)}><HiOutlineUserAdd />Register</Link></li>
-                                        <li><Link to="signin" className='login-btn' onClick={() => setMobileMenuClicked(false)}><HiOutlineUser />Sign In</Link></li> 
+                                        <li><Link to="signin" className='login-btn' onClick={() => setMobileMenuClicked(false)}><HiOutlineUser />Sign In</Link></li>
                                     </>
                                     :
                                     <>

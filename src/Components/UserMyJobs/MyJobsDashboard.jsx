@@ -123,10 +123,10 @@ const MyJobsDashboard = () => {
                         <div className="dashboard-social">
                             <h4>Social Contacts</h4>
                             <ul>
-                                <li className='facebook-social'><Link><FaFacebookF /> /kazisolah114</Link></li>
-                                <li className='linkedin-social'><Link><FaLinkedinIn /> /kazisolah114</Link></li>
-                                <li className='github-social'><Link><FaGithub /> /kazisolah114</Link></li>
-                                <li className='whatsapp-social'><Link><FaWhatsappSquare /> /kazisolah114</Link></li>
+                                <li className='facebook-social'><Link><FaFacebookF /> /kazi331</Link></li>
+                                <li className='linkedin-social'><Link><FaLinkedinIn /> /kazi331</Link></li>
+                                <li className='github-social'><Link><FaGithub /> /kazi331</Link></li>
+                                <li className='whatsapp-social'><Link><FaWhatsappSquare /> /kazi331</Link></li>
                             </ul>
                         </div>
                         <div className="dashboard-resume">

@@ -55,7 +55,7 @@ const AllJobs = () => {
         <div className='all-jobs'>
 
             <div className="all-jobs-search-section container">
-                <div className="search-content">
+                <div className="search-content" style={{ marginBottom: '20px' }}>
                     <form action="" onSubmit={handleFilteredJobs}>
                         <div>
                             <HiOutlineBriefcase></HiOutlineBriefcase>

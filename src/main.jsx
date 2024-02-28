@@ -196,6 +196,23 @@ const router = createBrowserRouter([
         ]
       }
     ]
+  },
+  {
+    path: '*',
+    element: <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      flexDirection: 'column',
+      textAlign: 'center',
+
+    }}>
+      <h1 style={{
+        fontSize: '10rem',
+      }}>404</h1>
+      <p> The page you are looking for is missing! </p>
+    </div>
   }
 ])
 
