@@ -10,7 +10,7 @@ import UserHome from '../UserHome/UserHome';
 const Home = () => {
     const { userData } = useUserContext();
     // console.log(userData)
-    
+
     return (
         <div>
             {userData ?

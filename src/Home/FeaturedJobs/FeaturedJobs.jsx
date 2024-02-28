@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { HiOutlineArrowNarrowRight, HiOutlineBookmark, HiOutlineCursorClick } from 'react-icons/hi';
-import { Link, Outlet } from 'react-router-dom';
-import './FeaturedJobs.css'
-import { FaUpRightFromSquare } from 'react-icons/fa6';
 import { useMediaQuery } from '@uidotdev/usehooks';
+import React, { useEffect, useState } from 'react';
+import { HiOutlineBookmark } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 import { useUserContext } from '../../UserContext/UserContext';
+import './FeaturedJobs.css';
 
 const FeaturedJobs = () => {
-    const {setClickedFeaturedJob} = useUserContext();
+    const { setClickedFeaturedJob } = useUserContext();
     const [allJobs, setAllJobs] = useState([]);
     const [featuredJobs, setFeaturedJobs] = useState([])
     const isMobileScreen = useMediaQuery("only screen and (max-width : 1368px)");
+
     useEffect(() => {
-        fetch('https://api.jumpintojob.com/api/v1/circular')
+        fetch('/alljobs.json')
             .then(res => res.json())
             .then(data => {
-                setAllJobs(data.data);
-                const filteredFeaturedJobs = allJobs.filter(job => job.job_vacancy >= 5);
+                setAllJobs(data);
+                const filteredFeaturedJobs = data?.filter(job => job.job_vacancy >= 5);
                 const sortedFeaturedJobs = filteredFeaturedJobs.sort((a, b) => b.job_vacancy - a.job_vacancy);
                 setFeaturedJobs(sortedFeaturedJobs);
             })
@@ -24,7 +24,7 @@ const FeaturedJobs = () => {
                 console.log("Error fetching data:", error);
             });
 
-    }, [featuredJobs])
+    }, [])
 
     const handleClickedFeaturedJob = (e) => {
         setClickedFeaturedJob(e);

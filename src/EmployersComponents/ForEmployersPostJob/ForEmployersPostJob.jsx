@@ -11,13 +11,13 @@ const ForEmployersPostJob = () => {
     const [jobData, setJobData] = useState({});
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('https://api.jumpintojob.com/api/v1/categories')
-        .then(res => res.json())
-        .then(data => {
-            setCategories(data.data);
-        })
-    },[])
-    console.log(categories)
+        fetch('/categories.json')
+            .then(res => res.json())
+            .then(data => {
+                setCategories(data);
+            })
+    }, [])
+
     return (
         <div className='post-job-main'>
             <div className="post-job-content container">
@@ -90,7 +90,7 @@ const ForEmployersPostJob = () => {
                                 <label htmlFor="category_id" className='not-required'>Job Category</label>
                                 <div className="account-input">
                                     <HiOutlineUserCircle></HiOutlineUserCircle>
-                                    <select name="category_id" id="category_id" onChange={(e) => setJobData({...jobData, 'category_id': 1, 'category_name': e.target.value})}>
+                                    <select name="category_id" id="category_id" onChange={(e) => setJobData({ ...jobData, 'category_id': 1, 'category_name': e.target.value })}>
                                         <option value="">Select</option>
                                         {
                                             categories.map((category) => (

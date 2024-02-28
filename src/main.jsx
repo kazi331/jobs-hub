@@ -47,89 +47,89 @@ import { UserProvider } from './UserContext/UserContext.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main></Main>,
+    element: <Main />,
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home />
       },
       {
         path: 'findjobs',
-        element: <AllJobs></AllJobs>,
+        element: <AllJobs />,
         children: [
           {
             path: 'jobdetails/:id',
-            element: <JobDetails></JobDetails>,
-            loader: () => fetch('https://api.jumpintojob.com/api/v1/circular')
+            element: <JobDetails />,
+            loader: () => fetch('/alljobs.json')
           }
         ]
       },
       {
         path: 'jobdetailsres/:id',
-        element: <JobDetailsResponsive></JobDetailsResponsive>,
+        element: <JobDetailsResponsive />,
         loader: () => fetch('/alljobs.json')
       },
       {
         path: 'jobcategory',
-        element: <JobCategory></JobCategory>
+        element: <JobCategory />
       },
       {
         path: 'companies',
-        element: <Companies></Companies>
+        element: <Companies />
       },
       {
         path: 'register',
-        element: <Register></Register>
+        element: <Register />
       },
       {
         path: 'signin',
-        element: <Login></Login>
+        element: <Login />
       },
       {
         path: 'userprofile',
-        element: <UserProfile></UserProfile>,
+        element: <UserProfile />,
         children: [
           {
             path: 'aboutme',
-            element: <AboutMe></AboutMe>
+            element: <AboutMe />
           },
           {
             path: 'qualifications',
-            element: <Qualifications></Qualifications>
+            element: <Qualifications />
           },
           {
             path: 'jobpreferences',
-            element: <JobPreferences></JobPreferences>
+            element: <JobPreferences />
           },
           {
             path: 'accountsetting',
-            element: <AccountSetting></AccountSetting>
+            element: <AccountSetting />
           }
         ]
       },
       {
         path: 'myjobs',
-        element: <UserMyJobs></UserMyJobs>,
+        element: <UserMyJobs />,
         children: [
           {
             path: 'dashboard',
-            element: <MyJobsDashboard></MyJobsDashboard>
+            element: <MyJobsDashboard />
           },
           {
             path: 'savedjobs',
-            element: <MyJobsSaved></MyJobsSaved>
+            element: <MyJobsSaved />
           },
           {
             path: 'appliedjobs',
-            element: <MyJobsApplied></MyJobsApplied>
+            element: <MyJobsApplied />
           },
           {
             path: 'interviews',
-            element: <MyJobsInterviews></MyJobsInterviews>
+            element: <MyJobsInterviews />
           },
           {
             path: 'archivedjobs',
-            element: <MyJobsArchived></MyJobsArchived>
+            element: <MyJobsArchived />
           }
         ]
       }
@@ -138,7 +138,7 @@ const router = createBrowserRouter([
 
   {
     path: 'applyjob/:id',
-    element: <ApplyJob></ApplyJob>,
+    element: <ApplyJob />,
     loader: () => fetch('https://api.jumpintojob.com/api/v1/circular')
   },
   {
@@ -147,23 +147,23 @@ const router = createBrowserRouter([
   },
   {
     path: 'foremployers',
-    element: <ForEmployersMain></ForEmployersMain>,
+    element: <ForEmployersMain />,
     children: [
       {
         path: '/foremployers',
-        element: <ForEmployersHome></ForEmployersHome>
+        element: <ForEmployersHome />
       },
       {
         path: 'postjobs',
-        element: <ForEmployersPostJob></ForEmployersPostJob>
+        element: <ForEmployersPostJob />
       },
       {
         path: 'register',
-        element: <ForEmployersRegister></ForEmployersRegister>
+        element: <ForEmployersRegister />
       },
       {
         path: 'signin',
-        element: <ForEmployersLogin></ForEmployersLogin>
+        element: <ForEmployersLogin />
       },
       {
         path: 'employerprofile',
@@ -218,6 +218,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserProvider><RouterProvider router={router}></RouterProvider></UserProvider>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>,
 )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './Companies.css'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { Link } from 'react-router-dom';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import './Companies.css';
 
 const Companies = () => {
 
@@ -24,7 +24,6 @@ const Companies = () => {
     const handleCategoryChange = (event) => {
         setSelectedCategory(event)
     }
-    console.log(selectedCategory)
     return (
         <div className='companies'>
             <div className="section-header companies-header">
@@ -37,7 +36,7 @@ const Companies = () => {
                     <TabList className="companies-tablist">
                         <Tab onClick={() => handleCategoryChange('All Industries')} className={`${selectedCategory == 'All Industries' ? 'default-category' : ''}`}>All Industries</Tab>
                         <Tab onClick={() => handleCategoryChange('Technology and IT')} className={`${selectedCategory == 'Technology and IT' ? 'default-category' : ''}`}>Technology & IT</Tab>
-                        <Tab onClick={() => handleCategoryChange('Retail and Consumer Goods')}  className={`${selectedCategory == 'Retail and Consumer Goods' ? 'default-category' : ''}`}>Retails and Consumer Goods</Tab>
+                        <Tab onClick={() => handleCategoryChange('Retail and Consumer Goods')} className={`${selectedCategory == 'Retail and Consumer Goods' ? 'default-category' : ''}`}>Retails and Consumer Goods</Tab>
                         <Tab onClick={() => handleCategoryChange('Finance and Banking')} className={`${selectedCategory == 'Finance and Banking' ? 'default-category' : ''}`}>Finance and Banking</Tab>
                         <Tab onClick={() => handleCategoryChange('Healthcare Pharmaceuticals')} className={`${selectedCategory == 'Healthcare Pharmaceuticals' ? 'default-category' : ''}`}>Healthcare and Pharmaceuticals</Tab>
                         <Tab onClick={() => handleCategoryChange('Manufacturing and Industrial')} className={`${selectedCategory == 'Manufacturing and Industrial' ? 'default-category' : ''}`}>Manufacturing and Industrial</Tab>

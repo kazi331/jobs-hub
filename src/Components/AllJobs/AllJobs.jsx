@@ -1,3 +1,4 @@
+import jobs from '/public/alljobs.json'
 import React, { useEffect, useState } from 'react';
 import './AllJobs.css'
 import { Link, Outlet } from 'react-router-dom';
@@ -8,13 +9,13 @@ import { useUserContext } from '../../UserContext/UserContext';
 
 const AllJobs = () => {
     const { clickedFeaturedJob } = useUserContext();
-    const [allJobs, setAllJobs] = useState([]);
-    const [filteredJobs, setFilteredJobs] = useState([]);
+    const [allJobs, setAllJobs] = useState(jobs);
+    const [filteredJobs, setFilteredJobs] = useState(allJobs);
     const [jobsToShow, setJobsToShow] = useState(6)
     const [clickedJob, setClickedJob] = useState();
     const jobsToShowIncrement = 6;
     const isMobileScreen = useMediaQuery("only screen and (max-width : 1368px)");
-    useEffect(() => {
+    /*     useEffect(() => {
         fetch('https://api.jumpintojob.com/api/v1/circular')
             .then(res => res.json())
             .then(data => {
@@ -28,7 +29,7 @@ const AllJobs = () => {
                 console.error('Error fetching data:', error);
                 // Handle errors appropriately (e.g., show an error message to the user)
             });
-    }, []);
+    }, []); */
     const handleClickedJob = (e) => {
         setClickedJob(e)
     }
@@ -56,7 +57,7 @@ const AllJobs = () => {
 
             <div className="all-jobs-search-section container">
                 <div className="search-content" style={{ marginBottom: '20px' }}>
-                    <form action="" onSubmit={handleFilteredJobs}>
+                    <form onSubmit={handleFilteredJobs}>
                         <div>
                             <HiOutlineBriefcase></HiOutlineBriefcase>
                             <input type="text" name="jobTitle" placeholder='Job title or keywords' />
